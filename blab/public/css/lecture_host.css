@@ -1,0 +1,103 @@
+body{
+	background-color: #000;
+}
+
+#remote{
+	height: 0;
+	width: 0;
+}
+
+#local {
+	width:320;
+	height:240;
+}
+
+.notificationLabel{
+	color: #E83427;
+	font-weight: normal;
+}
+
+
+#localBox{
+	border:1.5px DASHED rgba(100,125,130,0.8);
+	border-radius:3px;
+	width:323;
+	margin:2% 8% 0 8%;
+}
+
+#controls{
+	margin:3% 8% 0 8%;
+}
+
+#lectureKey{
+	font-size: 20px;
+	margin: 1%;
+}
+
+#chatKey{
+	font-size:20px;
+	font-weight:normal;
+	margin-right:5%;
+}
+
+#chat{
+	background: rgb(15,15,15); height: 600px;
+	margin:5%;
+	width: 800px;
+	border: 2px;
+	border-color: rgb(61, 85, 109);
+	border-style: dotted;
+	border-radius: 3px;
+	color: rgb(179, 203, 224);
+}
+
+#localText{
+	width: 742px;
+	height: 30px;
+	color: #000;
+}
+
+#send{
+	color:#000;
+}
+
+#messages{
+	height:565px;
+	overflow: auto;
+}
+
+#footer{
+	height: 20px;
+	background-color: rgba(254,255,213,1);
+	color: #000;
+	bottom: 0;
+	position: absolute;
+}
+
+#footer a{
+	text-decoration: none;
+	color: #000;
+}
+
+#peerList{
+	height: 290px;
+	margin:0 0 0 8%;
+	width: 320px;
+	border:1.5px DASHED rgba(100,125,130,0.8);
+	border-radius: 3px;
+	color: rgb(179, 203, 224);
+	overflow: auto;
+}
+
+#peerListHead{
+	border-bottom: 1.5px DASHED rgba(100,125,130,0.8);
+	font-size: 20px;
+	font-weight: bold;
+	color: #222;
+}
+
+#peerListEntry{
+	border-bottom: 1.5px DASHED rgba(100,125,130,0.8);
+	font-size: 20px;
+	color: #222;
+}

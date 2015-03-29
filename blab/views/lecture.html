@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>One</title>
+<link rel="stylesheet" type="text/css" href="/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/lecture.css">
+
+</head>
+<body onload="copyRoomKey()">
+<center><h1 id="header">Lectures :(</h1></center>
+<form method="post" name="Details" onsubmit="getFormAction(this)">
+<div id="nick">enter your nick here</div>
+<input type="text" name="nick" id="nickText"></input><br/>
+<input type="button" onclick="attendKey()" id="attendButton" class="btn btn-success" value="Attend" /><br/>
+<input type="button" onclick="hostKey()" id="hostButton" class="btn btn-info" value="Host" /><br/>
+<div id="attendArea">
+	<center><input type="text" name="lectureKey" id="lectureKey" autocomplete="false"></input><br /><br />
+	<input type="button" class="btn" id="copyKey" value="Copy Key" />
+	<input type="submit" id="submit" class="btn btn-success" value="Procced" /><br /><br />
+	<div style="color:#E83427;" id="warning">  </div></center>
+</div>
+</form>
+<center><div id="note"> NOTE: Maximum 10 users allowed per room (including the host).</div></center>
+</body>
+<script type="text/javascript" src="/scripts/jquery-1.8.0.min.js"></script>
+<script src="/plugins/zeroClipBoard/ZeroClipboard.js"></script>
+<script type="text/javascript">
+	var attend = 0;
+	function attendKey() {
+		document.getElementById('attendArea').style.visibility = 'visible';
+		document.getElementById("lectureKey").value= "";
+		document.getElementById("warning").innerHTML = "Please use the unique key provided by your lecturer to connect with him, else you wont be able to reach him!!";
+		attend =1;
+	}
+
+	function hostKey() {
+		document.getElementById("attendArea").style.visibility = 'visible';
+		document.getElementById("lectureKey").value = Math.random().toString(36).substring(8);
+		document.getElementById("warning").innerHTML = "Share this unique key with your target audience to connect with them!!";
+		attend =0;
+	}
+
+	function copyRoomKey() {
+		ZeroClipboard.setMoviePath("/plugins/zeroClipBoard/ZeroClipboard.swf");
+	    var clip = new ZeroClipboard.Client();
+	    clip.addEventListener('mousedown',function() {
+	        clip.setText(document.getElementById("lectureKey").value);
+	    });
+	    clip.addEventListener('complete',function(client,text) {
+	        alert("Room key copied to clipboard. Share this unique key with the person you want to blaber with!!");
+	    });
+	    clip.glue('copyKey');
+	    alert("If you are having a chat room key then press enter key, else press generate key to create a new room key and share it with your peer to chat");
+	}
+
+	function getFormAction(form) {
+		if(attend == 0) {
+			form.action = "/lecture-host";
+			//alert(form.action);
+		}
+		else {
+			form.action = "/lecture-client";
+			//alert(form.action);
+		}
+	}
+
+</script>
+</html>

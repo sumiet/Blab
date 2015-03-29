@@ -1,0 +1,69 @@
+body{
+	color: #000;
+	
+}
+
+#nick{
+	position: absolute;
+	font-size: 50px;
+	left:30%;
+	top: 20%;
+	font-weight: bold;
+}
+
+#nickText{
+	border:none;
+	border-bottom: 1px SOLId #000;
+	color: #000;
+	font-size: 30px;
+	position: absolute;
+	left: 38%;
+	width: 250px;
+	top: 32%;
+}
+
+#nickText:focus {
+	outline: none;
+}
+
+#enterKeyButton {
+	position: absolute;
+	left: 33%;
+	top:50%;
+	font-size: 30px;
+}
+
+#generateKeyButton {
+	position: absolute;
+	left: 48%;
+	top:50%;
+	font-size: 30px;
+}
+
+#enterKeyArea{
+	visibility: hidden;
+	position: absolute;
+	top: 65%;
+	left: 35%;
+	width: 300px;
+}
+
+#roomKey{
+	border:none;
+	border-bottom: 1px SOLId #000;
+	color: #000;
+	font-size: 30px;
+	width: 200px;
+}
+
+#roomKey:focus{
+	outline: none;
+}
+
+
+
+#header{
+	color: #E83427;
+	font-size: 70px;
+	font-weight: bolder;
+}

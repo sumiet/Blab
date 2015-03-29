@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>One to One chat!!</title>
+<link rel="stylesheet" type="text/css" href="/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/one-chat.css">
+</head>
+<body onload="initialize()">
+<div id="nick" style="display:none;"><%= nick %></div>
+<div class="col-md-8" >
+	<video id="remote" autoplay></video>
+	<center><label id="remoteLabelVideo" class="notificationLabel"></label><br/><label id="remoteLabelAudio" class="notificationLabel"></label></center>
+	</div>
+<div class="col-md-4">
+	<center>
+		<label id="localLabelVideo" class="notificationLabel"></label><br/>
+		<label id="localLabelAudio" class="notificationLabel"></label>
+	</center>
+	<div id="localBox">
+		<video id="local" autoplay="true" muted="muted"></video>
+	</div>
+	<div id="controls"><center>
+		<button class="btn" id="copyKey">Copy Key</button>
+		<button class="btn" onclick="toggleAudio()" id="muteAudioButton">Mute Audio</button>
+		<button class="btn" onclick="toggleVideo()" id="muteVideoButton">Mute Video</button>
+		<div id="roomKey">Room Key:<label id="chatKey" ><%= roomKey %></label></div></center>
+	</div>
+	<div id="chat">
+		<div id="messages">&nbsp;</div>
+		<div id="localMessage">
+			<input type="text" id="localText" placeholder="Chat Text"></input>
+			<button id="send">Send</button>
+		</div>
+
+	</div>
+</div>
+<div class="col-md-12" id="footer">
+	<center>
+		<a href="">FAQ</a> | 
+		<a href=""> Instructions</a> | 
+		Coded by Sumit Agarwal(2k11) |
+		Keep Blabering :)
+	</center>
+</div>
+
+<script type="text/javascript" src="/plugins/socket.io-client/socket.io.js"></script>
+<script type="text/javascript" src="/scripts/adapter.js"></script>
+<script src="/plugins/zeroClipBoard/ZeroClipboard.js"></script>
+<script src="/scripts/one_interface.js"></script>
+</body>
+</html>

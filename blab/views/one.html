@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>One</title>
+<link rel="stylesheet" type="text/css" href="/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/one.css">
+
+</head>
+<body onload="copyRoomKey()">
+<center><h1 id="header">Lets' Blabber!!</h1></center>
+<form method="post" action="/one-chat" name="Details">
+<div id="nick">enter your nick here</div>
+<input type="text" name="nick" id="nickText"></input><br/>
+<input type="button" onclick="enterKey()" id="enterKeyButton" class="btn btn-success" value="Enter Key" /><br/>
+<input type="button" onclick="generateKey()" id="generateKeyButton" class="btn btn-info" value="Generate Key" /><br/>
+<div id="enterKeyArea">
+	<center><input type="text" name="roomKey" id="roomKey" autocomplete="false"></input><br /><br />
+	<input type="button" class="btn" id="copyKey" value="Copy Key" />
+	<input type="submit" id="submit" class="btn btn-success" value="Procced" /><br /><br />
+	<div style="color:#E83427;" id="warning">  </div></center>
+</div>
+</form>
+</body>
+<script type="text/javascript" src="/scripts/jquery-1.8.0.min.js"></script>
+<script src="/plugins/zeroClipBoard/ZeroClipboard.js"></script>
+<script type="text/javascript">
+
+	function enterKey() {
+		document.getElementById('enterKeyArea').style.visibility = 'visible';
+		document.getElementById("roomKey").value= "";
+		document.getElementById("warning").innerHTML = "Please use the unique key provided by your peer to connect with him, else you wont be able to reach him!!";
+	}
+
+	function generateKey() {
+		document.getElementById("enterKeyArea").style.visibility = 'visible';
+		document.getElementById("roomKey").value = Math.random().toString(36).substring(8);
+		document.getElementById("warning").innerHTML = "Share this unique key with your peer to connect with him!!";
+
+	}
+
+	function copyRoomKey() {
+		ZeroClipboard.setMoviePath("/plugins/zeroClipBoard/ZeroClipboard.swf");
+	    var clip = new ZeroClipboard.Client();
+	    clip.addEventListener('mousedown',function() {
+	        clip.setText(document.getElementById("roomKey").value);
+	    });
+	    clip.addEventListener('complete',function(client,text) {
+	        alert("Room key copied to clipboard. Share this unique key with the person you want to blaber with!!");
+	    });
+	    clip.glue('copyKey');
+	    alert("If you are having a chat room key then press enter key, else press generate key to create a new room key and share it with your peer to chat");
+	}
+	/*
+	function checkAndSubmit() {
+		if(document.getElementById("roomKey").value  == '')
+			alert("Please provide the room key");
+		else if(document.getElementById('nickText').value == '')
+			alert("Please enter your nick");
+		else document.Details.submit();
+	} */
+
+</script>
+</html>
